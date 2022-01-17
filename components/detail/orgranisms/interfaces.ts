@@ -4,7 +4,7 @@ interface coinDataTypes {
   hashing_algorithm?: string;
   description?: { en: string };
   market_cap_rank?: number;
-  links?: { homepage: string[] };
+  links?: { homepage: string[] | undefined };
   genesis_date?: string;
 }
 

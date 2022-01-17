@@ -32,10 +32,10 @@ const Coin = ({
           <Text className={styles.info}>Hashing algorithm: {hashAlgo}</Text>
         </View>
       )}
-      {desc.en !== "" && (
+      {desc?.en !== "" && (
         <View className={styles.scrollContainer}>
           <ScrollView>
-            <Text className={styles.info}>{desc.en}</Text>
+            <Text className={styles.info}>{desc?.en}</Text>
           </ScrollView>
         </View>
       )}
@@ -46,10 +46,12 @@ const Coin = ({
         <Text className={styles.info}>
           Homepage:{" "}
           <Text
-            onPress={() => Linking.openURL(links.homepage[0])}
+            onPress={() =>
+              Linking.openURL(links?.homepage ? links?.homepage[0] : "")
+            }
             className={styles.info}
           >
-            {links.homepage[0]}
+            {links?.homepage && links?.homepage[0]}
           </Text>
         </Text>
       </View>
