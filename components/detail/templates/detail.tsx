@@ -38,9 +38,7 @@ const Detail = ({ route }: any) => {
         <SafeAreaView className={styles.container}>
           <ScrollView>
             <View className={styles.infoContainer}>
-              <Text className={styles.info}>
-                Name: {coinData?.name} {alert("main")}
-              </Text>
+              <Text className={styles.info}>Name: {coinData?.name}</Text>
             </View>
             <View className={styles.infoContainer}>
               <Text className={styles.info}>Symbol: {coinData?.symbol}</Text>
