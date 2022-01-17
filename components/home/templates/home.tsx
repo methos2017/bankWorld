@@ -5,6 +5,7 @@ import {
   StatusBar,
   Dimensions,
   TouchableOpacity,
+  SafeAreaView,
 } from "react-native";
 
 import styles from "./home.scss";
@@ -48,7 +49,7 @@ export default function Home({ navigation }: any) {
   const renderItem = ({ item }: { item: geckoDataObj }) => <Item {...item} />;
 
   return (
-    <View className={styles.container}>
+    <SafeAreaView className={styles.container}>
       <FlatList
         data={DATA}
         renderItem={renderItem}
@@ -56,6 +57,6 @@ export default function Home({ navigation }: any) {
         style={{ width: Dimensions.get("window").width + 5, height: "100%" }}
       />
       <StatusBar />
-    </View>
+    </SafeAreaView>
   );
 }

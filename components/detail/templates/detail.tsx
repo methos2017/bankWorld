@@ -4,6 +4,7 @@ import {
   ScrollView,
   Text,
   View,
+  SafeAreaView,
 } from "react-native";
 import { useEffect, useState } from "react";
 
@@ -32,7 +33,7 @@ const Detail = ({ route }: any) => {
   }, []);
 
   return loading ? (
-    <View className={styles.container}>
+    <SafeAreaView className={styles.container}>
       <ScrollView>
         <View className={styles.infoContainer}>
           <Text className={styles.info}>Name: {coinData?.name}</Text>
@@ -76,7 +77,7 @@ const Detail = ({ route }: any) => {
           </View>
         )}
       </ScrollView>
-    </View>
+    </SafeAreaView>
   ) : (
     <View className={styles.spinnerContainer}>
       <ActivityIndicator />
