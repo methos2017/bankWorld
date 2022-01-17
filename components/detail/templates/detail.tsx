@@ -7,11 +7,16 @@ import {
   SafeAreaView,
 } from "react-native";
 import { useEffect, useState, useCallback } from "react";
+import { RouteProp } from "@react-navigation/native";
 
 import styles from "./detail.scss";
 import Coin from "../orgranisms/coin";
 
-const Detail = ({ route }: any) => {
+interface route {
+  route: RouteProp<{ params: { id: number } }, "params">;
+}
+
+const Detail = ({ route }: route) => {
   const id = route.params.id;
 
   const [coinData, setCoinData] = useState({});
