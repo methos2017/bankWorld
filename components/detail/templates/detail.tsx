@@ -48,11 +48,13 @@ const Detail = ({ route }: any) => {
             </Text>
           </View>
         )}
-        <View className={styles.scrollContainer}>
-          <ScrollView>
-            <Text className={styles.info}>{coinData?.description.en}</Text>
-          </ScrollView>
-        </View>
+        {coinData?.description.en !== "" && (
+          <View className={styles.scrollContainer}>
+            <ScrollView>
+              <Text className={styles.info}>{coinData?.description.en}</Text>
+            </ScrollView>
+          </View>
+        )}
         <View className={styles.infoContainer}>
           <Text className={styles.info}>
             Market cap rating: {coinData?.market_cap_rank}
