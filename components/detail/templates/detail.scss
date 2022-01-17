@@ -1,27 +1,3 @@
-.container {
-  flex: 1;
-  justify-content: start;
-  align-items: start;
-  background-color: $dark0;
-  padding: 5px;
-}
-
-.infoContainer {
-  background-color: $blue;
-  padding: 10px;
-  margin-top: 2px;
-}
-
-.scrollContainer {
-  @extend .infoContainer;
-  height: 40%;
-}
-
-.info {
-  font-size: 16;
-  color: $white;
-}
-
 .spinnerContainer {
   height: 100%;
   justify-content: center;
