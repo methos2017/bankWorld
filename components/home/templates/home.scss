@@ -1,0 +1,52 @@
+.container {
+  flex: 1;
+  justify-content: start;
+  align-items: start;
+  background-color: $dark0;
+  padding: 5px;
+}
+
+.containerAlt {
+  @extend .container;
+  background-color: $primary;
+}
+
+.itemContainer {
+  flex-direction: row;
+}
+
+@mixin getItem($flexBasis: 20%, $type: "str") {
+  background-color: $blue;
+  &:hover {
+    background-color: $white;
+  }
+  cursor: pointer;
+  padding: 10px;
+  margin-vertical: 1;
+  margin-horizontal: 1;
+  flex-basis: $flexBasis;
+  @if ($type == "num") {
+    align-items: center;
+  }
+}
+
+.item1 {
+  @include getItem(22%);
+}
+
+.item2 {
+  @include getItem(15%);
+}
+
+.item3,
+.item4 {
+  @include getItem($type: "num");
+}
+.item5 {
+  @include getItem(22%, "num");
+}
+
+.title {
+  font-size: 12;
+  color: $white;
+}
