@@ -7,25 +7,42 @@ import {
   SafeAreaView,
 } from "react-native";
 import { useEffect, useState, useCallback } from "react";
-import { RouteProp } from "@react-navigation/native";
+import { RouteProp, useNavigation } from "@react-navigation/native";
 
 import styles from "./detail.scss";
 import Coin from "../orgranisms/coin";
+
+import createResource from "../../universal/resource.js";
+
+// const id = navigation.getParam('id');
+
+async function fetchPosts(url) {
+  const response = await fetch(url);
+  const data = await response.json();
+  return data;
+}
+
+const resource = createResource(fetchPosts);
 
 interface route {
   route: RouteProp<{ params: { id: number } }, "params">;
 }
 
 const Detail = ({ route }: route) => {
-  const id = route.params.id;
+  // const id = route.params.id;
 
   const [coinData, setCoinData] = useState({});
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetch(`https://api.coingecko.com/api/v3/coins/${id}`).then((response) =>
-      response.json().then((data) => (setCoinData(data), setLoading(true)))
-    );
+    const DATA = resource.read();
+    // alert(JSON.stringify(DATA));
+
+    setLoading(true);
+    setCoinData(DATA);
+    // fetch(`https://api.coingecko.com/api/v3/coins/${id}`).then((response) =>
+    //   response.json().then((data) => (setCoinData(data), setLoading(true)))
+    // );
   }, [loading]);
 
   const getCoinData = useCallback(

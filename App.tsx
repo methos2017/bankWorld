@@ -1,10 +1,13 @@
 import { ActivityIndicator, View } from "react-native";
-import { Suspense } from "react";
+import React, { Suspense, lazy } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import Home from "./components/home/templates/home";
-import Detail from "./components/detail/templates/detail";
+// import Home from "./components/home/templates/home";
+
+const Home = lazy(() => import("./components/home/templates/home"));
+const Detail = lazy(() => import("./components/detail/templates/detail"));
+// import Detail from "./components/detail/templates/detail";
 
 import styles from "./app.scss";
 
@@ -22,7 +25,7 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="Detail" component={Detail} />
+          {/* <Stack.Screen name="Detail" component={Detail} /> */}
         </Stack.Navigator>
       </NavigationContainer>
     </Suspense>

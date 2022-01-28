@@ -12,10 +12,15 @@ import styles from "./home.scss";
 import createResource from "../../universal/resource.js";
 import { geckoDataObj } from "./interfaces";
 
-const resource = createResource();
+const fetchCurrency = () =>
+  fetch(
+    "https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&spa"
+  ).then((r) => r.json());
+
+const resource = createResource(fetchCurrency);
 
 export default function Home({ navigation }: any) {
-  const DATA = resource.markets.read();
+  const DATA = resource.read();
 
   const Item = ({
     id,

@@ -28,8 +28,8 @@
     "babel-plugin-react-native-classname-to-dynamic-style": "^0.22.0",
     "babel-plugin-react-native-classname-to-style": "^1.2.2",
     "babel-plugin-react-native-platform-specific-extensions": "^1.1.1",
-    "node-sass": "*",
-    "react-native-sass-transformer": "^1.4.0",
+    "sass": "*",
+    "react-native-sass-transformer": "^2.0.0",
     "typescript": "~4.3.5"
   },
   "private": true
