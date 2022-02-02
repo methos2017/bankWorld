@@ -8,6 +8,8 @@ import {
   SafeAreaView,
 } from "react-native";
 
+import { useTransition } from "react";
+
 import styles from "./home.scss";
 import createResource from "../../universal/resource.js";
 import { geckoDataObj } from "./interfaces";
@@ -21,6 +23,11 @@ const resource = createResource(fetchCurrency);
 
 export default function Home({ navigation }: any) {
   const DATA = resource.read();
+
+  // const [startTransition, isPending] = useTransition({
+  //   // Wait 10 seconds before fallback
+  //   timeoutMs: 10000,
+  // });
 
   const Item = ({
     id,
